@@ -2,37 +2,57 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.carousel {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  gap: 1.5rem;
+  margin: 0 10rem 5rem;
+}
+
+.carousel .ui.card {
+  text-align: center;
+  margin: 0 !important;
+}
+
+.carousel .ui.card .image{
+  position: relative;
+}
+
+.carousel .icon.inverted.circular {
+  align-self: center;
+  background-color: #018bb5 !important;
+}
+
+.contactsContainer {
+  display: flex;
+  margin: 0 15rem;
+  gap: 15rem;
+  background-color: #d9d9d9;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border-radius: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.contactsContainer .contactsCard{
+ display: grid;
+  gap: 4rem;
+  padding: 5rem 2rem;
+  justify-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.contactsContainer .contactsCard a{
+  font-size: 1.75rem;
+  color: black;
+  line-height: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .carousel {
+    margin-left: 0;
+    margin-top: 1rem;
+    padding: 1.5rem;
+    background-color: grey;
   }
-  to {
-    transform: rotate(360deg);
+
+  .carousel .ui.card:last-child {
+    display: none;
   }
 }
