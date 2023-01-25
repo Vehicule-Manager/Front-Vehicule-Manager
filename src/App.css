@@ -5,7 +5,7 @@
 .carousel {
   display: flex;
   gap: 1.5rem;
-  margin: 0 10rem 5rem;
+  margin: 0 5rem 5rem;
 }
 
 .carousel .ui.card {
@@ -20,6 +20,20 @@
 .carousel .icon.inverted.circular {
   align-self: center;
   background-color: #018bb5 !important;
+}
+
+.cardImageContainer {
+  position: relative;
+}
+.cardImageContainer .cardBadgeContainer {
+   display: flex;
+}
+.cardImageContainer .cardBadgeContainer .icon{
+  position: absolute;
+  top: 5% ;
+  left: 5%;
+  bottom: 0;
+  right: 0;
 }
 
 .contactsContainer {

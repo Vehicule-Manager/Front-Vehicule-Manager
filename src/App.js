@@ -5,27 +5,19 @@ import {Card, Dimmer, Icon, Menu, Image, Segment} from 'semantic-ui-react'
 import './App.css';
 
 function App() {
-    const [dimmerActive, setDimmerActive] = useState(true);
+    const [active, setActive] = useState(false);
     const [activeItem, setActiveItem] = useState("home");
 
-    useEffect(() => {
-
-    }, [dimmerActive])
 
     const handleItemClick = (e, {name}) => {
         setActiveItem(name);
     }
     const handleShow = () => {
-        setDimmerActive(true);
+        setActive(true);
     }
     const handleHide = () => {
-        setDimmerActive(true);
+        setActive(false);
     }
-    const badge = (
-        <div className="badgeCar">
-            <Icon name='bolt' size='small'/>
-        </div>
-    )
 
     const header = (
         <p>
@@ -36,16 +28,22 @@ function App() {
 
     const CardExampleCardProps = () => (
         <Card>
-            <div>
+            <div className='cardImageContainer'>
                 <Dimmer.Dimmable
                     as={Image}
-                    dimmed={false}
+                    dimmed={active}
+                    dimmer={{ active }}
                     onMouseEnter={handleShow}
                     onMouseLeave={handleHide}
                     size='medium'
                     src={logo}
                     wrapped
                 />
+                <div className='cardBadgeContainer'>
+                    <div>
+                        <Icon name='bolt'/>
+                    </div>
+                </div>
             </div>
             <Card.Content>
                 <Card.Header>{header}</Card.Header>
@@ -60,7 +58,7 @@ function App() {
         <div className="App">
             <Menu>
                 <Menu.Item
-                    name='browse'
+                    name='home'
                     active={activeItem === 'home'}
                     onClick={handleItemClick}
                 >
