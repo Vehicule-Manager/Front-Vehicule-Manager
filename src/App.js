@@ -21,8 +21,7 @@ function App() {
 
     const header = (
         <p>
-            Model&nbsp;
-            <Icon name='user'/>
+            Model
         </p>
     )
 
@@ -40,8 +39,14 @@ function App() {
                     wrapped
                 />
                 <div className='cardBadgeContainer'>
-                    <div>
+                    <div className='cardBadgeIcon'>
                         <Icon name='bolt'/>
+                    </div>
+                    <div className='cardBadgeText'>
+                        <p>LDD</p>
+                    </div>
+                    <div className='cardBadgeText'>
+                        <p>particulier</p>
                     </div>
                 </div>
             </div>
@@ -104,7 +109,7 @@ function App() {
                 <CardExampleCardProps/>
                 <CardExampleCardProps/>
                 <CardExampleCardProps/>
-                <Icon name='angle right' size='huge' circular inverted/>
+                <Icon name='angle right' size='big' circular inverted/>
 
             </div>
             <h2>Nous contacter</h2>

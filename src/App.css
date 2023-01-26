@@ -4,17 +4,20 @@
 
 .carousel {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   margin: 0 5rem 5rem;
 }
 
 .carousel .ui.card {
   text-align: center;
-  margin: 0 !important;
+  margin: 0 ;
 }
 
 .carousel .ui.card .image{
   position: relative;
+}
+.carousel .ui.card .ui.dimmer{
+  background-color: rgba(0,0,0,0.3) !important;
 }
 
 .carousel .icon.inverted.circular {
@@ -27,18 +30,33 @@
 }
 .cardImageContainer .cardBadgeContainer {
    display: flex;
-}
-.cardImageContainer .cardBadgeContainer .icon{
   position: absolute;
   top: 5% ;
   left: 5%;
-  bottom: 0;
-  right: 0;
+  gap: 1rem;
+}
+.cardImageContainer .cardBadgeContainer div{
+  padding: 0.25rem;
+}
+.cardImageContainer .cardBadgeContainer .cardBadgeIcon{
+  outline: 1px solid blueviolet;
+  color: blueviolet;
+  border-radius: 5px;
+}
+.cardImageContainer .cardBadgeContainer .cardBadgeText{
+  outline: 1px solid grey;
+  border-radius: 5px;
+}
+
+.cardImageContainer:hover .cardBadgeContainer .cardBadgeIcon{
+  outline: 1px solid cadetblue;
+  color: cadetblue;
+  border-radius: 5px;
 }
 
 .contactsContainer {
   display: flex;
-  margin: 0 15rem;
+  margin: 0 10rem;
   gap: 15rem;
   background-color: #d9d9d9;
   justify-content: center;
@@ -47,8 +65,8 @@
 
 .contactsContainer .contactsCard{
  display: grid;
-  gap: 4rem;
-  padding: 5rem 2rem;
+  gap: 3rem;
+  padding: 2rem;
   justify-items: center;
 }
 
@@ -63,10 +81,18 @@
     margin-left: 0;
     margin-top: 1rem;
     padding: 1.5rem;
-    background-color: grey;
+    flex-shrink: 1;
   }
 
-  .carousel .ui.card:last-child {
+  .carousel .ui.card:first-child{
     display: none;
+  }
+
+  .contactsContainer {
+    margin: 0;
+    gap: 1rem;
+    background-color: #d9d9d9;
+    justify-content: center;
+    border-radius: 1rem;
   }
 }
