@@ -10,15 +10,10 @@ const CardExampleCardProps = () => {
   const handleHide = () => {
     setActive(false);
   }
-  const header = (
-    <p>
-        Model
-    </p>
-  )
 
     return (
-    <Card>
-        <div className='cardImageContainer' onMouseEnter={handleShow} onMouseLeave={handleHide}>
+    <Card onMouseEnter={handleShow} onMouseLeave={handleHide}>
+        <div className='cardImageContainer' >
             <Dimmer active={active} onClick={handleHide}>
                 <Image src={logo} size='medium' wrapped />
             </Dimmer>
@@ -36,7 +31,9 @@ const CardExampleCardProps = () => {
             </div>
         </div>
         <Card.Content>
-            <Card.Header>{header}</Card.Header>
+            <Card.Header>
+                Model
+            </Card.Header>
             <Card.Description>
                 1000€
             </Card.Description>
