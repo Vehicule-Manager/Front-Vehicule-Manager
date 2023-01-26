@@ -3,7 +3,7 @@ import 'semantic-ui-css/semantic.min.css';
 import React, {useEffect, useState} from 'react'
 import {Card, Dimmer, Icon, Menu, Image, Segment} from 'semantic-ui-react'
 import './App.css';
-import CardExampleCardProps from'./pages/CardAuto';
+import CardExampleCardProps from'./component/CardAuto';
 
 function App() {
     
