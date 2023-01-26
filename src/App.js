@@ -6,14 +6,14 @@ import './App.css';
 import CardExampleCardProps from'./component/CardAuto';
 
 function App() {
-    
+
     const [activeItem, setActiveItem] = useState("home");
 
 
     const handleItemClick = (e, {name}) => {
         setActiveItem(name);
     }
-    
+
 return (
         <div className="App">
             <Menu>
@@ -69,18 +69,18 @@ return (
             </div>
             <h2>Nous contacter</h2>
             <div className='contactsContainer'>
-                <div className='contactsCard'>
-                    <Icon name='phone' size='huge' circular inverted color='black'/>
-                    <a>030204204</a>
-                </div>
-                <div className='contactsCard'>
-                    <Icon name='mail' size='huge' circular inverted color='black'/>
-                    <a>rien.rien@gmail.com</a>
-                </div>
-                <div className='contactsCard'>
-                    <Icon name='map marker alternate' size='huge' circular inverted color='black'/>
-                    <a>10 rue belleville <br/>60200 Compiègne</a>
-                </div>
+                <a className='contactsCard' href='tel:030204204'>
+                    <Icon name='phone' size='huge' circular inverted/>
+                    <div>030204204</div>
+                </a>
+                <a className='contactsCard' href='mailto:rien.rien@gmail.com'>
+                    <Icon name='mail' size='huge' circular inverted/>
+                    <div>rien.rien@gmail.com</div>
+                </a>
+                <a className='contactsCard' href='https://goo.gl/maps/5WKCjpvjAZpQHQNQ8'>
+                    <Icon name='map marker alternate' size='huge' circular inverted/>
+                    <div>10 rue belleville <br/>60200 Compiègne</div>
+                </a>
             </div>
         </div>
     );

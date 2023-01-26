@@ -16,6 +16,7 @@
 .carousel .ui.card .image{
   position: relative;
 }
+
 .carousel .ui.card .ui.dimmer{
   background-color: rgba(0,0,0,0.3) !important;
 }
@@ -23,6 +24,10 @@
 .carousel .icon.inverted.circular {
   align-self: center;
   background-color: #018bb5 !important;
+}
+
+.carousel .icon.inverted.circular:hover {
+  scale: 1.2;
 }
 
 .cardImageContainer {
@@ -74,10 +79,18 @@
   justify-items: center;
 }
 
-.contactsContainer .contactsCard a{
+.contactsContainer .contactsCard div{
   font-size: 1.75rem;
   color: black;
   line-height: 2rem;
+}
+
+.contactsContainer .contactsCard:hover div{
+  color: #018bb5 !important;
+}
+
+.contactsContainer .contactsCard:hover .icon {
+  background-color: #018bb5 !important;
 }
 
 @media (max-width: 1200px) {
