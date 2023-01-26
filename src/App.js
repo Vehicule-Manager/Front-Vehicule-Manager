@@ -1,65 +1,20 @@
-import logo from './logoCar.png';
+
 import 'semantic-ui-css/semantic.min.css';
 import React, {useEffect, useState} from 'react'
 import {Card, Dimmer, Icon, Menu, Image, Segment} from 'semantic-ui-react'
 import './App.css';
+import CardExampleCardProps from'./pages/CardAuto';
 
 function App() {
-    const [active, setActive] = useState(false);
+    
     const [activeItem, setActiveItem] = useState("home");
 
 
     const handleItemClick = (e, {name}) => {
         setActiveItem(name);
     }
-    const handleShow = () => {
-        setActive(true);
-    }
-    const handleHide = () => {
-        setActive(false);
-    }
-
-    const header = (
-        <p>
-            Model
-        </p>
-    )
-
-    const CardExampleCardProps = () => (
-        <Card>
-            <div className='cardImageContainer'>
-                <Dimmer.Dimmable
-                    as={Image}
-                    dimmed={active}
-                    dimmer={{ active }}
-                    onMouseEnter={handleShow}
-                    onMouseLeave={handleHide}
-                    size='medium'
-                    src={logo}
-                    wrapped
-                />
-                <div className='cardBadgeContainer'>
-                    <div className='cardBadgeIcon'>
-                        <Icon name='bolt'/>
-                    </div>
-                    <div className='cardBadgeText'>
-                        <p>LDD</p>
-                    </div>
-                    <div className='cardBadgeText'>
-                        <p>particulier</p>
-                    </div>
-                </div>
-            </div>
-            <Card.Content>
-                <Card.Header>{header}</Card.Header>
-                <Card.Description>
-                    1000€
-                </Card.Description>
-            </Card.Content>
-        </Card>
-    )
-
-    return (
+    
+return (
         <div className="App">
             <Menu>
                 <Menu.Item
