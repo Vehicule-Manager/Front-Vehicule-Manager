@@ -2,6 +2,7 @@
   text-align: center;
 }
 
+
 .carousel {
   display: flex;
   gap: 1.75rem;
@@ -113,3 +114,8 @@
     border-radius: 1rem;
   }
 }
+
+.footerBackground {
+  background-color: grey;
+}
+

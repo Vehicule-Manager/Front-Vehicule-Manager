@@ -1,10 +1,12 @@
 
 import 'semantic-ui-css/semantic.min.css';
-import React from 'react'
-import {Icon} from 'semantic-ui-react'
+import React from 'react';
+import {Icon} from 'semantic-ui-react';
 import './App.css';
+import './assets/style/App.scss';
 import CardExampleCardProps from'./component/CardAuto';
-import HeaderNavbar from './component/layout/headers'
+import HeaderNavbar from './component/layout/headers';
+import Footer from './component/layout/footer';
 
 function App() {
 
@@ -35,6 +37,7 @@ return (
                     <div>10 rue belleville <br/>60200 Compiègne</div>
                 </a>
             </div>
+            <Footer/>
         </div>
     );
 }
