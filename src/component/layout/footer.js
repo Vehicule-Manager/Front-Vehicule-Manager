@@ -6,8 +6,10 @@ const Footer = () => {
 
     return (
         <div className='FooterBackground'>
-            <h2 className="divider line one-line " contenteditable>Simple 1px</h2>
-        </div>
+            <h2 className="divider line one-line " contenteditable><Icon name='car' size='large' circular inverted color='black'/></h2>
+            <p>Test</p>
+            <p>Test</p>
+ </div>
     )
 }
 
