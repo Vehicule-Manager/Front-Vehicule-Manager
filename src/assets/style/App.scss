@@ -1,6 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn&display=swap');
+
+@font-face {
+  font-family : 'Fastup';
+  src: url("../fonts/Fastup-Regular.ttf");
+}
+
 .App {
   text-align: center;
 }
+
+
+h1, h2, h3 {
+
+  font-family: 'Fastup', serif;
+
+}
+
+p {
+  font-family: 'Vollkorn', serif;
+}
+
 
 .carousel {
   display: flex;
