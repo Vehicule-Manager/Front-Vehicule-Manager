@@ -26,7 +26,7 @@ return (
             <div className='contactsContainer'>
                 <a className='contactsCard' href='tel:030204204'>
                     <Icon name='phone' size='huge' circular inverted/>
-                    <div>030204204</div>
+                    <div>03 02 04 20 44</div>
                 </a>
                 <a className='contactsCard' href='mailto:rien.rien@gmail.com'>
                     <Icon name='mail' size='huge' circular inverted/>

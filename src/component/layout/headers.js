@@ -18,22 +18,14 @@ const HeaderNavbar = () => {
                 <Icon name='car' size='big' circular inverted color='black'/>
             </Menu.Item>
             <Menu.Item
-                name='browse'
-                active={activeItem === 'browse'}
+                name='location'
+                active={activeItem === 'location'}
                 onClick={handleItemClick}
             >
-                Browse
+                Location
             </Menu.Item>
 
-            <Menu.Item
-                name='submit'
-                active={activeItem === 'submit'}
-                onClick={handleItemClick}
-            >
-                Submit
-            </Menu.Item>
-
-            <Menu.Menu position='right'>
+            {/*<Menu.Menu position='right'>
                 <Menu.Item
                     name='signup'
                     active={activeItem === 'signup'}
@@ -49,7 +41,7 @@ const HeaderNavbar = () => {
                 >
                     Help
                 </Menu.Item>
-            </Menu.Menu>
+            </Menu.Menu>*/}
         </Menu>)
 }
 

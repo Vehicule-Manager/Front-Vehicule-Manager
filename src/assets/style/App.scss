@@ -1,9 +1,141 @@
+.App {
+  text-align: center;
+}
+
+.carousel {
+  display: flex;
+  gap: 1.75rem;
+  margin: 0 0 5rem 5rem;
+
+  .ui.card {
+    text-align: center;
+    margin: 0 ;
+
+    .image {
+      position: relative;
+    }
+
+    .ui.dimmer{
+      background-color: rgba(0,0,0,0.3) !important;
+    }
+
+    .cardImageContainer {
+      position: relative;
+
+      .cardBadgeContainer {
+        display: flex;
+        position: absolute;
+        top: 5% ;
+        left: 5%;
+        gap: 1rem;
+
+        .cardBadgeText,.cardBadgeIcon{
+          padding: 0.25rem;
+        }
+
+        .cardBadgeText{
+          outline: 1px solid grey;
+          border-radius: 5px;
+        }
+
+        .cardBadgeIcon{
+          outline: 1px solid blueviolet;
+          color: blueviolet;
+          border-radius: 5px;
+        }
+      }
+    }
+
+    &:hover {
+      .image {
+        scale: 1.1;
+      }
+
+      .cardBadgeContainer  {
+        .cardBadgeIcon {
+          outline: 1px solid cadetblue;
+          color: cadetblue;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+
+  .icon.inverted.circular {
+    align-self: center;
+    background-color: #018bb5 !important;
+
+    &:hover {
+      scale: 1.2;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .carousel {
+    margin-left: 0;
+    margin-top: 1rem;
+    padding: 1.5rem;
+
+    .ui.card:first-child{
+      display: none;
+    }
+  }
+}
+
+.contactsContainer {
+  display: flex;
+  margin: 0 5rem;
+  gap: 15rem;
+  background-color: #d9d9d9;
+  justify-content: center;
+  border-radius: 1rem;
+
+  .contactsCard{
+    display: grid;
+    gap: 3rem;
+    padding: 2rem;
+    justify-items: center;
+
+    div{
+      font-size: 1.75rem;
+      color: black;
+      line-height: 2rem;
+    }
+
+    &:hover {
+      div{
+        color: #018bb5 !important;
+      }
+
+      .icon {
+        background-color: #018bb5 !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .contactsContainer {
+    display: grid;
+    margin: 0;
+    gap: 1rem;
+    background-color: #d9d9d9;
+    justify-content: center;
+    border-radius: 1rem;
+
+    .contactsCard{
+      padding: 0;
+    }
+  }
+}
+
 .FooterBackground {
     margin-top: 20px;
     background-color: #d9d9d9;
     padding: 1rem 4rem;
 }
-  
+
   // Base Divider class
   .divider {
     display: flex;
@@ -13,12 +145,12 @@
       flex: 1;
     }
   }
-  
+
   // Base line
   .line {
     align-items: center;
     margin: 1em -1em;
-    
+
     &:before,
     &:after {
       height: 1px;
@@ -31,4 +163,3 @@
         background: black;
       }
     }
-  
