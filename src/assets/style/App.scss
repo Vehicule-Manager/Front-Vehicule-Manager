@@ -75,9 +75,18 @@
   .carousel {
     margin-left: 0;
     margin-top: 1rem;
-    padding: 1.5rem;
+    padding: 0.5rem;
 
-    .ui.card:first-child{
+    .ui.card {
+      display: none;
+      width: 100% !important;
+
+      &:first-child{
+        display: block;
+      }
+    }
+
+    .icon.inverted.circular {
       display: none;
     }
   }
@@ -125,7 +134,7 @@
     border-radius: 1rem;
 
     .contactsCard{
-      padding: 0;
+      padding: 2rem 0;
     }
   }
 }

@@ -1,5 +1,4 @@
-import { Menu, Icon, Divider } from 'semantic-ui-react';
-import { useState } from "react";
+import { Icon, Divider } from 'semantic-ui-react';
 import React from 'react';
 
 const Footer = () => {
@@ -24,7 +23,7 @@ const Footer = () => {
                     <h2>Qui sommes-nous ?</h2>
                     <h3>Auto Rentals</h3>
                     <a className='contactsCard' href='https://goo.gl/maps/5WKCjpvjAZpQHQNQ8'>
-                        
+
                         <div><Icon name='map marker alternate' size='small' circular inverted /> 10 rue belleville 60200 Compiègne</div>
                     </a>
                     <a className='contactsCard' href='tel:030204204'>
