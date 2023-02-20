@@ -6,10 +6,14 @@ import './assets/style/App.scss';
 import CardExampleCardProps from './component/CardAuto';
 import HeaderNavbar from './component/layout/headers';
 import Footer from './component/layout/footer';
+import {Routes, Route} from "react-router-dom";
+import contact from './pages/Contact';
 
 function App() {
     return (
         <div className="App">
+
+        
             <HeaderNavbar/>
             <h1>Bienvenue sur « Auto Rentals » !</h1>
             <p>
