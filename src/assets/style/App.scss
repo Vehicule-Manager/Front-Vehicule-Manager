@@ -5,7 +5,7 @@
   src: url("../fonts/Fastup-Regular.ttf");
 }
 
-.App {
+* {
   text-align: center;
 }
 
@@ -77,6 +77,25 @@ p {
           border-radius: 5px;
         }
       }
+    }
+
+    .content.extra {
+      margin: 15px 0 10px 0;
+
+      .btn-card {
+        padding: 10px;
+        background-color: black;
+        color: white;
+        border-radius: 15px;
+
+        &:hover {
+          box-shadow: 0 0 1px 1px black, 0 0 2.5px 3px white,0 0 5px 5px black;
+        }
+      }
+    }
+
+    &:hover {
+      box-shadow: 3px 3px 10px 3px black;
     }
   }
 

@@ -1,15 +1,15 @@
 import 'semantic-ui-css/semantic.min.css';
 import React from 'react';
 import {Icon} from 'semantic-ui-react';
-import './App.css';
-import './assets/style/App.scss';
-import CardExampleCardProps from './component/CardAuto';
-import HeaderNavbar from './component/layout/headers';
-import Footer from './component/layout/footer';
+import './../App.css';
+import './../assets/style/App.scss';
+import CardExampleCardProps from './../component/CardAuto';
+import HeaderNavbar from './../component/layout/headers';
+import Footer from './../component/layout/footer';
 
-function App() {
+export default function Home() {
     return (
-        <div className="App">
+        <div className="Home">
             <HeaderNavbar/>
             <h1>Bienvenue sur « Auto Rentals » !</h1>
             <p>
@@ -51,5 +51,3 @@ function App() {
         </div>
     );
 }
-
-export default App;
