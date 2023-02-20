@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import Home from './pages/Home'
 import Leasing from './pages/Leasing'
+import Contact from './pages/Contact';
 import reportWebVitals from './reportWebVitals';
 import {
     createBrowserRouter,
@@ -19,11 +20,15 @@ const router = createBrowserRouter([
         path: "/location",
         element: <Leasing />,
     },
+    {
+      path: "/contact",
+      element: <Contact />,
+    },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-      <RouterProvider router={router} />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
