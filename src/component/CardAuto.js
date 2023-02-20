@@ -12,9 +12,9 @@ const CardExampleCardProps = () => {
   }
 
     return (
-    <Card onMouseEnter={handleShow} onMouseLeave={handleHide}>
-        <div className='cardImageContainer' >
-            <Dimmer active={active} onClick={handleHide}>
+    <Card >
+        <div className='cardImageContainer' onMouseEnter={handleShow} onMouseLeave={handleHide} >
+            <Dimmer active={active} onClick={handleHide} >
                 <Image src={logo} size='medium' wrapped />
             </Dimmer>
             <Image src={logo} size='medium' wrapped  />
@@ -37,6 +37,11 @@ const CardExampleCardProps = () => {
             <Card.Description>
                 1000€
             </Card.Description>
+            <Card.Content extra>
+                <a href="https://react.semantic-ui.com/views/card/#types-card" target="_blank" className="btn btn-card">
+                    Je commande <Icon name='arrow right'/>
+                </a>
+            </Card.Content>
         </Card.Content>
     </Card>
     )

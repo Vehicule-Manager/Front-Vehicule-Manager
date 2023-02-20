@@ -20,7 +20,6 @@ p {
   font-family: 'Vollkorn', serif;
 }
 
-
 .carousel {
   display: flex;
   gap: 1.75rem;
@@ -63,12 +62,12 @@ p {
           border-radius: 5px;
         }
       }
-    }
 
-    &:hover {
-      .image {
-        scale: 1.1;
-      }
+      &:hover {
+        .image {
+          scale: 1.1;
+        }
+    }
 
       .cardBadgeContainer  {
         .cardBadgeIcon {
@@ -77,6 +76,24 @@ p {
           border-radius: 5px;
         }
       }
+    }
+
+    .content.extra {
+      margin: 15px 0 10px 0;
+
+      .btn-card {
+        padding: 10px;
+        background-color: black;
+        color: white;
+        border-radius: 15px;
+        &:hover {
+          box-shadow: 0 0 1px 1px black, 0 0 2.5px 3px white,0 0 5px 5px black;
+        }
+      }
+    }
+
+    &:hover {
+      box-shadow: 0.5px 0.5px 1px 1px black, 1px 1px 3px 1.5px white, 3px 3px 5px 3px black;
     }
   }
 
