@@ -15,14 +15,28 @@ const HeaderNavbar = () => {
                 active={activeItem === 'home'}
                 onClick={handleItemClick}
             >
-                <Icon name='car' size='big' circular inverted color='black'/>
+                <a href="/"><Icon name='car' size='big' circular inverted color='black'/></a>
             </Menu.Item>
             <Menu.Item
                 name='location'
                 active={activeItem === 'location'}
                 onClick={handleItemClick}
             >
-                Location
+                <a href="location">Location</a>
+            </Menu.Item>
+            <Menu.Item
+                name='contact'
+                active={activeItem === 'contact'}
+                onClick={handleItemClick}
+            >
+                <a href="contact">Contact</a>
+            </Menu.Item>
+            <Menu.Item
+                name='service'
+                active={activeItem === 'services'}
+                onClick={handleItemClick}
+            >
+                <a href="services">Service</a>
             </Menu.Item>
 
             {/*<Menu.Menu position='right'>
