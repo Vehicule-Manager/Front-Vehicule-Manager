@@ -20,7 +20,6 @@ p {
   font-family: 'Vollkorn', serif;
 }
 
-
 .carousel {
   display: flex;
   gap: 1.75rem;
@@ -63,12 +62,12 @@ p {
           border-radius: 5px;
         }
       }
-    }
 
-    &:hover {
-      .image {
-        scale: 1.1;
-      }
+      &:hover {
+        .image {
+          scale: 1.1;
+        }
+    }
 
       .cardBadgeContainer  {
         .cardBadgeIcon {
@@ -87,7 +86,6 @@ p {
         background-color: black;
         color: white;
         border-radius: 15px;
-
         &:hover {
           box-shadow: 0 0 1px 1px black, 0 0 2.5px 3px white,0 0 5px 5px black;
         }
