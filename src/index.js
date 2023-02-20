@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import Home from './pages/Home'
-import Leasing from './pages/Leasing'
+import Home from './pages/Home';
+import Leasing from './pages/Leasing';
+import Services from "./pages/services";
 import Contact from './pages/Contact';
 import reportWebVitals from './reportWebVitals';
 import {
@@ -21,9 +22,13 @@ const router = createBrowserRouter([
         element: <Leasing />,
     },
     {
+        path: "/services",
+        element: <Services />
+    },
+    {
       path: "/contact",
       element: <Contact />,
-    },
+    }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
