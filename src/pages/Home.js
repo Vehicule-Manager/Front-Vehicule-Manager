@@ -6,6 +6,8 @@ import './../assets/style/App.scss';
 import CardExampleCardProps from './../component/CardAuto';
 import HeaderNavbar from './../component/layout/headers';
 import Footer from './../component/layout/footer';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 export default function Home() {
     return (
@@ -26,14 +28,76 @@ export default function Home() {
             </p>
             <p><strong>*Voir ci-dessous pour obtenir les modalités de contact</strong></p>
             <h2>Nos locations du moment</h2>
-            <div className='carousel'>
+            <Carousel
+                additionalTransfrom={0}
+                arrows
+                autoPlaySpeed={3000}
+                centerMode={false}
+                className=""
+                containerClass="container"
+                dotListClass=""
+                draggable
+                focusOnSelect={false}
+                infinite={false}
+                itemClass=""
+                keyBoardControl
+                minimumTouchDrag={80}
+                pauseOnHover
+                renderArrowsWhenDisabled={false}
+                renderButtonGroupOutside={false}
+                renderDotsOutside={false}
+                responsive={{
+                    desktop: {
+                        breakpoint: {
+                            max: 3000,
+                            min: 1024
+                        },
+                        items: 4,
+                        partialVisibilityGutter: 40
+                    },
+                    mobile: {
+                        breakpoint: {
+                            max: 464,
+                            min: 0
+                        },
+                        items: 1,
+                        partialVisibilityGutter: 30
+                    },
+                    tablet: {
+                        breakpoint: {
+                            max: 1024,
+                            min: 464
+                        },
+                        items: 3,
+                        partialVisibilityGutter: 30
+                    }
+                }}
+                rewind={false}
+                rewindWithAnimation={false}
+                rtl={false}
+                shouldResetAutoplay
+                showDots={false}
+                sliderClass=""
+                slidesToSlide={1}
+                swipeable
+            >
                 <CardExampleCardProps/>
                 <CardExampleCardProps/>
                 <CardExampleCardProps/>
                 <CardExampleCardProps/>
-                <Icon name='angle right' size='big' circular inverted/>
-
-            </div>
+                <CardExampleCardProps/>
+                <CardExampleCardProps/>
+                <CardExampleCardProps/>
+                <CardExampleCardProps/>
+                <CardExampleCardProps/>
+                <CardExampleCardProps/>
+                <CardExampleCardProps/>
+                <CardExampleCardProps/>
+                <CardExampleCardProps/>
+                <CardExampleCardProps/>
+                <CardExampleCardProps/>
+                <CardExampleCardProps/>
+            </Carousel>
             <h2>Nous contacter</h2>
             <div className='contactsContainer'>
                 <a className='contactsCard' href='tel:030204204'>
