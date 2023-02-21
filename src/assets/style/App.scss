@@ -92,6 +92,26 @@ p {
     box-shadow: 3px 3px 10px 3px black;
   }
 }
+
+/* -------------------------------------------
+                 Articles
+-------------------------------------------- */
+
+.ArticleContainer {
+  display: flex;
+  margin: 1rem;
+
+  .ArticleText {
+    display: grid;
+  }
+}
+
+@media (max-width: 1200px) {
+  .ArticleContainer {
+    display: grid;
+  }
+}
+
 /*--------------------------------------------
                  Carousel
  --------------------------------------------*/

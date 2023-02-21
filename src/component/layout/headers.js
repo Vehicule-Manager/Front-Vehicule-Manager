@@ -38,7 +38,13 @@ const HeaderNavbar = () => {
             >
                 <a href="services">Service</a>
             </Menu.Item>
-
+            <Menu.Item
+                name='article'
+                active={activeItem === 'article'}
+                onClick={handleItemClick}
+            >
+                <a href="article">Articles</a>
+            </Menu.Item>
             {/*<Menu.Menu position='right'>
                 <Menu.Item
                     name='signup'
