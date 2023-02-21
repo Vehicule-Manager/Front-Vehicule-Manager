@@ -13,14 +13,16 @@ export default function Home() {
             <HeaderNavbar/>
             <h1>Bienvenue sur « Auto Rentals » !</h1>
             <p>
-                Vous recherchez un nouveau véhicule en location, que ce soit en LLD ou en LOA, pour votre besoin de déplacement professionnel ou personnel ?</p>
-
-            <p> Nous vous proposons divers choix de marques et de modèles, mais aussi de couleur selon vos préférences
-                !</p>
-
-            <p> Si vous le souhaitez, vous pouvez nous contacter par téléphone, par mail ou venir directement sur
-                place
-                pour obtenir les renseignements souhaités.
+                Vous recherchez un nouveau véhicule en location, que ce soit en LLD ou en LOA, pour votre besoin de
+                déplacement professionnel ou personnel ?
+            </p>
+            <p>
+                Nous vous proposons divers choix de marques et de modèles, mais aussi de couleur selon vos
+                préférences !
+            </p>
+            <p>
+                Si vous le souhaitez, vous pouvez nous contacter par téléphone, par mail ou venir directement sur
+                place pour obtenir les renseignements souhaités.
             </p>
             <p><strong>*Voir ci-dessous pour obtenir les modalités de contact</strong></p>
             <h2>Nos locations du moment</h2>

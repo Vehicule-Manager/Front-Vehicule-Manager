@@ -9,93 +9,98 @@
   text-align: center;
 }
 
-
 h1, h2, h3 {
-
   font-family: 'Fastup', serif;
-
 }
 
 p {
   font-family: 'Vollkorn', serif;
+  text-align: inherit;
 }
 
-.carousel {
-  display: flex;
-  gap: 1.75rem;
-  margin: 0 0 5rem 5rem;
+/*--------------------------------------------
+                 Ui card
+ --------------------------------------------*/
 
-  .ui.card {
-    text-align: center;
-    margin: 0 ;
+.ui.card {
+  text-align: center;
+  margin: 0 ;
 
-    .image {
-      position: relative;
-    }
+  .image {
+    position: relative;
+  }
 
-    .ui.dimmer{
-      background-color: rgba(0,0,0,0.3) !important;
-    }
+  .ui.dimmer{
+    background-color: rgba(0,0,0,0.3) !important;
+  }
 
-    .cardImageContainer {
-      position: relative;
+  .cardImageContainer {
+    position: relative;
 
-      .cardBadgeContainer {
-        display: flex;
-        position: absolute;
-        top: 5% ;
-        left: 5%;
-        gap: 1rem;
+    .cardBadgeContainer {
+      display: flex;
+      position: absolute;
+      top: 5% ;
+      left: 5%;
+      gap: 1rem;
 
-        .cardBadgeText,.cardBadgeIcon{
-          padding: 0.25rem;
-        }
-
-        .cardBadgeText{
-          outline: 1px solid grey;
-          border-radius: 5px;
-        }
-
-        .cardBadgeIcon{
-          outline: 1px solid blueviolet;
-          color: blueviolet;
-          border-radius: 5px;
-        }
+      .cardBadgeText,.cardBadgeIcon{
+        padding: 0.25rem;
       }
 
-      &:hover {
-        .image {
-          scale: 1.1;
-        }
-    }
-
-      .cardBadgeContainer  {
-        .cardBadgeIcon {
-          outline: 1px solid cadetblue;
-          color: cadetblue;
-          border-radius: 5px;
-        }
+      .cardBadgeText{
+        outline: 1px solid grey;
+        border-radius: 5px;
       }
-    }
 
-    .content.extra {
-      margin: 15px 0 10px 0;
-
-      .btn-card {
-        padding: 10px;
-        background-color: black;
-        color: white;
-        border-radius: 15px;
-        &:hover {
-          box-shadow: 0 0 1px 1px black, 0 0 2.5px 3px white,0 0 5px 5px black;
-        }
+      .cardBadgeIcon{
+        outline: 1px solid blueviolet;
+        color: blueviolet;
+        border-radius: 5px;
       }
     }
 
     &:hover {
-      box-shadow: 3px 3px 10px 3px black;
+      .image {
+        scale: 1.1;
+      }
+    }
+
+    .cardBadgeContainer  {
+      .cardBadgeIcon {
+        outline: 1px solid cadetblue;
+        color: cadetblue;
+        border-radius: 5px;
+      }
     }
   }
+
+  .content.extra {
+    margin: 15px 0 10px 0;
+
+    .btn-card {
+      padding: 10px;
+      background-color: black;
+      color: white;
+      border-radius: 15px;
+      &:hover {
+        box-shadow: 0 0 1px 1px black, 0 0 2.5px 3px white,0 0 5px 5px black;
+      }
+    }
+  }
+
+  &:hover {
+    box-shadow: 3px 3px 10px 3px black;
+  }
+}
+/*--------------------------------------------
+                 Carousel
+ --------------------------------------------*/
+
+.carousel {
+  display: flex;
+  gap: 1.75rem;
+  margin: 2rem 0 5rem 5rem;
 
   .icon.inverted.circular {
     align-self: center;
@@ -127,6 +132,9 @@ p {
     }
   }
 }
+/*--------------------------------------------
+               Home  Contact
+ --------------------------------------------*/
 
 .contactsContainer {
   display: flex;
@@ -175,7 +183,31 @@ p {
   }
 }
 
-// Style Footer
+/*--------------------------------------------
+                 Catalog
+ --------------------------------------------*/
+
+.shop {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+
+.filter {
+  width: 25%;
+}
+
+.catalogue {
+  width: 65%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-row-gap: 1rem;
+}
+
+/*--------------------------------------------
+                 Footer
+ --------------------------------------------*/
+
 .FooterBackground {
     margin-top: 20px;
     background-color: #d9d9d9;
@@ -206,12 +238,10 @@ p {
 }
 
 .one-line {
-
     &:before,
     &:after {
         background: black;
     }
-
 }
 
 .containerFooter {
