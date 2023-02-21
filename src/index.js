@@ -11,6 +11,7 @@ import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
+import Articles from "./pages/Articles";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
     {
       path: "/contact",
       element: <Contact />,
+    },
+    {
+      path : "/article",
+      element: <Articles />
     }
 ]);
 

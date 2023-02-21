@@ -27,7 +27,9 @@ export default function Home() {
                 place pour obtenir les renseignements souhaités.
             </p>
             <p><strong>*Voir ci-dessous pour obtenir les modalités de contact</strong></p>
+
             <h2>Nos locations du moment</h2>
+
             <Carousel
                 additionalTransfrom={0}
                 arrows
@@ -81,39 +83,41 @@ export default function Home() {
                 slidesToSlide={1}
                 swipeable
             >
-                <CardExampleCardProps/>
-                <CardExampleCardProps/>
-                <CardExampleCardProps/>
-                <CardExampleCardProps/>
-                <CardExampleCardProps/>
-                <CardExampleCardProps/>
-                <CardExampleCardProps/>
-                <CardExampleCardProps/>
-                <CardExampleCardProps/>
-                <CardExampleCardProps/>
-                <CardExampleCardProps/>
-                <CardExampleCardProps/>
-                <CardExampleCardProps/>
-                <CardExampleCardProps/>
-                <CardExampleCardProps/>
-                <CardExampleCardProps/>
+                    <CardExampleCardProps/>
+                    <CardExampleCardProps/>
+                    <CardExampleCardProps/>
+                    <CardExampleCardProps/>
+                    <CardExampleCardProps/>
+                    <CardExampleCardProps/>
+                    <CardExampleCardProps/>
+                    <CardExampleCardProps/>
+                    <CardExampleCardProps/>
+                    <CardExampleCardProps/>
+                    <CardExampleCardProps/>
+                    <CardExampleCardProps/>
+                    <CardExampleCardProps/>
+                    <CardExampleCardProps/>
+                    <CardExampleCardProps/>
+                    <CardExampleCardProps/>
             </Carousel>
-            <h2>Nous contacter</h2>
-            <div className='contactsContainer'>
-                <a className='contactsCard' href='tel:030204204'>
-                    <Icon name='phone' size='huge' circular inverted/>
-                    <div>03 02 04 20 44</div>
-                </a>
-                <a className='contactsCard' href='mailto:rien.rien@gmail.com'>
-                    <Icon name='mail' size='huge' circular inverted/>
-                    <div>rien.rien@gmail.com</div>
-                </a>
-                <a className='contactsCard' href='https://goo.gl/maps/5WKCjpvjAZpQHQNQ8'>
-                    <Icon name='map marker alternate' size='huge' circular inverted/>
-                    <div>10 rue belleville <br/>60200 Compiègne</div>
-                </a>
-            </div>
-            <Footer/>
-        </div>
-    );
+    <h2>Nous contacter</h2>
+
+    <div className='contactsContainer'>
+        <a className='contactsCard' href='tel:030204204'>
+            <Icon name='phone' size='huge' circular inverted/>
+            <div>03 02 04 20 44</div>
+        </a>
+        <a className='contactsCard' href='mailto:rien.rien@gmail.com'>
+            <Icon name='mail' size='huge' circular inverted/>
+            <div>rien.rien@gmail.com</div>
+        </a>
+        <a className='contactsCard' href='https://goo.gl/maps/5WKCjpvjAZpQHQNQ8'>
+            <Icon name='map marker alternate' size='huge' circular inverted/>
+            <div>10 rue belleville <br/>60200 Compiègne</div>
+        </a>
+    </div>
+    <Footer/>
+</div>
+)
+    ;
 }
