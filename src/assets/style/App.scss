@@ -96,40 +96,9 @@ p {
                  Carousel
  --------------------------------------------*/
 
-.carousel {
-  display: flex;
-  gap: 1.75rem;
-  margin: 2rem 0 5rem 5rem;
-
-  .icon.inverted.circular {
-    align-self: center;
-    background-color: #018bb5 !important;
-
-    &:hover {
-      scale: 1.2;
-    }
-  }
-}
-
-@media (max-width: 1200px) {
-  .carousel {
-    margin-left: 0;
-    margin-top: 1rem;
-    padding: 0.5rem;
-
-    .ui.card {
-      display: none;
-      width: 100% !important;
-
-      &:first-child{
-        display: block;
-      }
-    }
-
-    .icon.inverted.circular {
-      display: none;
-    }
-  }
+.react-multi-carousel-list {
+  margin: 2rem 5rem;
+  padding: 2rem 0 2rem 10px;
 }
 /*--------------------------------------------
                Home  Contact
