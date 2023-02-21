@@ -19,9 +19,7 @@ const options = [
 
 export default function Contact() {
   return (
-
-
-    <div>
+ <div>
       <HeaderNavbar />
       <h1>Contact</h1>
       <div class="formContainer">
@@ -103,6 +101,5 @@ export default function Contact() {
       </div>
       <Footer />
     </div>
-
-  )
+)
 }
