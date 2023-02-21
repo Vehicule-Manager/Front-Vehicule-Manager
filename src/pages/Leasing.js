@@ -8,15 +8,18 @@ import './../assets/style/App.scss';
 import CardExampleCardProps from './../component/CardAuto';
 import HeaderNavbar from './../component/layout/headers';
 import Footer from './../component/layout/footer';
+import { registerLocale, setDefaultLocale } from  "react-datepicker";
+import fr from 'date-fns/locale/fr';
+registerLocale('fr', fr)
 
 export default function Leasing() {
-        const [startDate, setStartDate] = useState(new Date());
-        const [endDate, setEndDate] = useState(null);
-        const onChange = (dates) => {
-            const [start, end] = dates;
-            setStartDate(start);
-            setEndDate(end);
-        };
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(null);
+    const onChange = (dates) => {
+        const [start, end] = dates;
+        setStartDate(start);
+        setEndDate(end);
+    };
     const options = [
         {key: 'm', text: 'Male', value: 'male'},
         {key: 'f', text: 'Female', value: 'female'},
@@ -74,6 +77,7 @@ export default function Leasing() {
                             onChange={onChange}
                             startDate={startDate}
                             endDate={endDate}
+                            locale="fr"
                             selectsRange
                             inline
                         />
