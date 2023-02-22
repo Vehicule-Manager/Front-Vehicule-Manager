@@ -18,7 +18,7 @@ const CardExampleCardProps = () => {
   const handleHide = () => {
     setActive(false);
   }
-
+    console.log(count['0']?.job)
     return (
     <Card >
         <div className='cardImageContainer' onMouseEnter={handleShow} onMouseLeave={handleHide} >
