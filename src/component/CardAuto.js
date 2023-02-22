@@ -1,6 +1,6 @@
 import {Card, Dimmer, Icon, Image} from 'semantic-ui-react'
 import logo from '../logoCar.png';
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
 const CardExampleCardProps = () => {
   const [active, setActive] = useState(false);
