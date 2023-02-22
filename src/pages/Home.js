@@ -85,20 +85,6 @@ export default function Home() {
             >
                     <CardExampleCardProps/>
                     <CardExampleCardProps/>
-                    <CardExampleCardProps/>
-                    <CardExampleCardProps/>
-                    <CardExampleCardProps/>
-                    <CardExampleCardProps/>
-                    <CardExampleCardProps/>
-                    <CardExampleCardProps/>
-                    <CardExampleCardProps/>
-                    <CardExampleCardProps/>
-                    <CardExampleCardProps/>
-                    <CardExampleCardProps/>
-                    <CardExampleCardProps/>
-                    <CardExampleCardProps/>
-                    <CardExampleCardProps/>
-                    <CardExampleCardProps/>
             </Carousel>
     <h2>Nous contacter</h2>
 
