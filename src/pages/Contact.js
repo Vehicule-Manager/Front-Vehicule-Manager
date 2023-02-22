@@ -1,47 +1,26 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import HeaderNavbar from './../component/layout/headers';
 import Footer from './../component/layout/footer';
-import { Icon } from 'semantic-ui-react'
 import {
   Button,
-  Checkbox,
   Form,
   Input,
-  Radio,
   Select,
   TextArea,
 } from 'semantic-ui-react'
-
 const options = [
   { key: 'm', text: 'M.', value: 'male' },
   { key: 'f', text: 'Mme', value: 'female' },
 ]
 
 
-
-export default function Contact() {
-
-  useEffect(() => {
-    // A retirer
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title: 'React POST Request Example' })
-    };
-      
-    fetch(process.env.REACT_APP_API_URL + "vehicule")
-    .then(response => response.json())
-    .then(data => console.log(data));
-    // .then(data => this.setState({ postId: data.id }));   
-  });
-
-  console.log(process.env.REACT_APP_LARAVEL)
+const Contact = () => {
   return (
     <div>
       <HeaderNavbar />
       <h1>Contact</h1>
-      <div class="formContainer">
-        <div class="formContact">
+      <div className="formContainer">
+        <div className="formContact">
           <Form>
             {/* Formulaire de contact : Nom/Prénom/Genre */}
             <Form.Group widths='equal'>
@@ -117,3 +96,5 @@ export default function Contact() {
     </div>
   )
 }
+
+export default Contact;

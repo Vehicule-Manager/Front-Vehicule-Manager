@@ -5,7 +5,7 @@ const Footer = () => {
 
     return (
         <div className='FooterBackground'>
-            <h2 className="divider line one-line " contenteditable><Icon name='car' size='large' circular inverted color='black' /></h2>
+            <h2 className="divider line one-line "><Icon name='car' size='large' circular inverted color='black' /></h2>
             <div className='containerFooter'>
                 <div>
                     <h3>Horraires d'ouverture garage</h3>

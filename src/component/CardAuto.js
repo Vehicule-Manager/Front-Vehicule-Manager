@@ -1,16 +1,25 @@
 import {Card, Dimmer, Icon, Image} from 'semantic-ui-react'
 import logo from '../logoCar.png';
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
 const CardExampleCardProps = () => {
   const [active, setActive] = useState(false);
+
+  const [count, setCount] = useState([]);
+
+    useEffect(() => {
+        fetch(process.env.REACT_APP_API_URL + "employee/1")
+            .then(response => response.json())
+            .then(data => setCount(data));
+        // .then(data => this.setState({ postId: data.id }));
+    });
   const handleShow = () => {
     setActive(true);
   }
   const handleHide = () => {
     setActive(false);
   }
-
+    console.log(count['0']?.job)
     return (
     <Card >
         <div className='cardImageContainer' onMouseEnter={handleShow} onMouseLeave={handleHide} >
