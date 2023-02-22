@@ -4,6 +4,14 @@ import React, {useState} from 'react'
 
 const CardExampleCardProps = () => {
   const [active, setActive] = useState(false);
+  const [count, setCount] = useState([]);
+
+    useEffect(() => {
+        fetch(process.env.REACT_APP_API_URL + "vehicule")
+            .then(response => response.json())
+            .then(data => setCount(data));
+        // .then(data => this.setState({ postId: data.id }));
+    });
   const handleShow = () => {
     setActive(true);
   }
@@ -41,6 +49,11 @@ const CardExampleCardProps = () => {
                 <a href="https://react.semantic-ui.com/views/card/#types-card" target="_blank" className="btn btn-card">
                     Je commande <Icon name='arrow right'/>
                 </a>
+                {count.map(item => (
+                    <div key={item.id}>
+                        {item?.horsepower}
+                    </div>
+                ))}
             </Card.Content>
         </Card.Content>
     </Card>
