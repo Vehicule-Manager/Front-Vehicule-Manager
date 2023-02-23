@@ -2,25 +2,26 @@ import { Card, Dimmer, Icon, Image } from 'semantic-ui-react';
 import logo from '../logoCar.png';
 import React, { useEffect, useState, useCallback } from 'react';
 
-const CardExampleCardProps = () => {
-    const [active, setActive] = useState(false);
-    const [count, setCount] = useState([]);
+const CardExampleCardProps = ({ item: { id_brands, price } }) => {
+    const [{ active }, setState] = useState({ active: false });
+    const [brand, setBrand] = useState([]);
 
     const handleShow = useCallback(() => {
-        setActive(true);
+        setState({ active: true });
     }, []);
 
     const handleHide = useCallback(() => {
-        setActive(false);
+        setState({ active: false });
     }, []);
 
     useEffect(() => {
-        fetch(process.env.REACT_APP_API_URL + "vehicule")
-            .then(response => response.json())
-            .then(data => setCount(data));
-    }, []);
-
-    console.log(count['0']?.job);
+        const fetchData = async () => {
+            const response = await fetch(process.env.REACT_APP_API_URL + "brand/" + id_brands);
+            const data = await response.json();
+            setBrand(data);
+        };
+        fetchData();
+    }, [id_brands]);
 
     return (
         <Card >
@@ -43,20 +44,15 @@ const CardExampleCardProps = () => {
             </div>
             <Card.Content>
                 <Card.Header>
-                    Model
+                    { brand['0']?.name }
                 </Card.Header>
                 <Card.Description>
-                    1000€
+                    { price }€
                 </Card.Description>
                 <Card.Content extra>
                     <a href="https://react.semantic-ui.com/views/card/#types-card" target="_blank" className="btn btn-card">
                         Je commande <Icon name='arrow right' />
                     </a>
-                    {count.map(item => (
-                        <div key={item.id}>
-                            {item?.horsepower}
-                        </div>
-                    ))}
                 </Card.Content>
             </Card.Content>
         </Card>

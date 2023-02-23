@@ -1,5 +1,5 @@
 import 'semantic-ui-css/semantic.min.css';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Icon} from 'semantic-ui-react';
 import './../App.css';
 import './../assets/style/App.scss';
@@ -9,7 +9,17 @@ import Footer from './../component/layout/footer';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
-export default function Home() {
+const Home = () => {
+    const [vehicule, setVehicles] = useState([]);
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch(process.env.REACT_APP_API_URL + "vehicule");
+            const data = await response.json();
+            setVehicles(data);
+        }
+        fetchData();
+    }, []);
+
     return (
         <div className="Home">
             <HeaderNavbar/>
@@ -83,8 +93,9 @@ export default function Home() {
                 slidesToSlide={1}
                 swipeable
             >
-                    <CardExampleCardProps/>
-                    <CardExampleCardProps/>
+                {vehicule.map(vehicule => (
+                    <CardExampleCardProps key={vehicule.id} item={ vehicule } />
+                ))}
             </Carousel>
     <h2>Nous contacter</h2>
 
@@ -107,3 +118,5 @@ export default function Home() {
 )
     ;
 }
+
+export default Home
