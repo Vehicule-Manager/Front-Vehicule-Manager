@@ -20,12 +20,16 @@ export default function Leasing() {
     const [energie, setEnergie] = useState([]);
     const [type, setType] = useState([]);
     const [gearBoxe, setGearBoxe] = useState([]);
+    const [model, setModel] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
             const response = await fetch(process.env.REACT_APP_API_URL + "vehicule");
             const data = await response.json();
             setVehicles(data);
+            const model = await fetch(process.env.REACT_APP_API_URL + "model");
+            const modelData = await model.json();
+            setModel(modelData);
             const brand = await fetch(process.env.REACT_APP_API_URL + "brand");
             const brandData = await brand.json();
             setBrand(brandData);
@@ -68,6 +72,10 @@ export default function Leasing() {
         gearBoxe.map(gearBoxe => (
             {key: gearBoxe.id, text: gearBoxe.name, value: gearBoxe.name}
         ));
+    const modelOptions =
+        model.map(model => (
+            {key: model.id, text: model.name, value: model.name}
+        ));
     return (
         <div className="Leasing">
             <HeaderNavbar/>
@@ -85,7 +93,7 @@ export default function Leasing() {
                         <Form.Select
                             fluid
                             label='Model'
-                            options={options}
+                            options={modelOptions}
                             placeholder='Model'
                         />
                     </Form.Field>
