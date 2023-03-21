@@ -56,6 +56,14 @@ p {
         outline: 1px solid blueviolet;
         color: blueviolet;
         border-radius: 5px;
+
+        .diesel {
+          color: #FDDA0D;
+        }
+
+        .gasoline {
+          color: black;
+        }
       }
     }
 

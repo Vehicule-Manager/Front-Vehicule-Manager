@@ -84,20 +84,14 @@ export default function Leasing() {
         if (selectedGearBoxe !== null) {
             newFilteredVehicles = newFilteredVehicles.filter(vehicle => vehicle.id_gear_boxes === selectedGearBoxe);
         }
-        if (startDate) {
-            newFilteredVehicles = newFilteredVehicles.filter(vehicle => {
-                // Assuming vehicle.date is a string in the format 'YYYY-MM-DD'
-                const vehicleDate = new Date(vehicle.date);
-                return vehicleDate >= startDate;
-            });
-        }
         setFilteredVehicles(newFilteredVehicles); // Update filteredVehicles instead of vehicles
     }, 300);
 
     const getMergedVehicles = () => {
         return filteredVehicles.map((vehicle) => {
             const vehicleModel = model.find((m) => m.id === vehicle.id_model_car);
-            return { ...vehicle, model: vehicleModel };
+            const modelBrand = brand.find((b) => b.id === vehicleModel.id_brands);
+            return { ...vehicle, model: vehicleModel, brand: modelBrand };
         });
     };
 
