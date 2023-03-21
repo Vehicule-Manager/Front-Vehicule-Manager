@@ -10,15 +10,43 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 const Home = () => {
-    const [vehicule, setVehicles] = useState([]);
+    const [vehicles, setVehicles] = useState([]);
+    const [model, setModel] = useState([]);
+
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch(process.env.REACT_APP_API_URL + "vehicule");
-            const data = await response.json();
-            setVehicles(data);
+            const urls = ["vehicule", "model"].map((endpoint) => process.env.REACT_APP_API_URL + endpoint);
+
+            const dataKeys = ["vehiculeData", "modelData"];
+
+            const dataPromises = urls.map(async (url, index) => {
+                const storageKey = dataKeys[index];
+                let data = JSON.parse(localStorage.getItem(storageKey));
+
+                if (!data) {
+                    const response = await fetch(url);
+                    data = await response.json();
+                    localStorage.setItem(storageKey, JSON.stringify(data));
+                }
+
+                return data;
+            });
+
+            const [vehiculeData, modelData] = await Promise.all(dataPromises);
+
+            setVehicles(vehiculeData);
+            setModel(modelData);
         }
+
         fetchData();
     }, []);
+
+    const getMergedVehicles = () => {
+        return vehicles.map((vehicle) => {
+            const vehicleModel = model.find((m) => m.id === vehicle.id_model_car);
+            return { ...vehicle, model: vehicleModel };
+        });
+    };
 
     return (
         <div className="Home">
@@ -93,8 +121,8 @@ const Home = () => {
                 slidesToSlide={1}
                 swipeable
             >
-                {vehicule.map(vehicule => (
-                    <CardExampleCardProps key={vehicule.id} item={ vehicule } />
+                {getMergedVehicles().map(vehicule => (
+                    <CardExampleCardProps key={vehicule.id} item={vehicule}  />
                 ))}
             </Carousel>
     <h2>Nous contacter</h2>
