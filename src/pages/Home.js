@@ -15,12 +15,16 @@ const Home = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch(process.env.REACT_APP_API_URL + "vehicule");
-            const vehiculeData = await response.json();
-            setVehicles(vehiculeData);
-            const model = await fetch(process.env.REACT_APP_API_URL + "model");
-            const modelData = await model.json();
-            setModel(modelData);
+            const urls = ["vehicule", "model"].map((endpoint) => process.env.REACT_APP_API_URL + endpoint);
+
+            const dataPromises = urls.map((url) => {
+                return fetch(url).then(response => response.json())
+            });
+
+            Promise.all(dataPromises).then(([vehiculeData, modelData]) => {
+                setVehicles(vehiculeData);
+                setModel(modelData);
+            });
         }
         fetchData();
     }, []);

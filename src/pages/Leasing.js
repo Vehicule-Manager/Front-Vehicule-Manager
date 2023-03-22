@@ -4,11 +4,12 @@ import './../assets/style/App.scss';
 import CardExampleCardProps from './../component/CardAuto';
 import HeaderNavbar from './../component/layout/headers';
 import Footer from './../component/layout/footer';
-import { registerLocale } from "react-datepicker";
+import {registerLocale} from "react-datepicker";
 import fr from 'date-fns/locale/fr';
 import {Pagination} from "@mui/material";
 import Filter from './../component/FilterLeasing';
-import { debounce } from 'lodash';
+import {debounce} from 'lodash';
+
 registerLocale('fr', fr)
 
 export default function Leasing() {
@@ -31,25 +32,21 @@ export default function Leasing() {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch(process.env.REACT_APP_API_URL + "vehicule");
-            const vehiculeData = await response.json();
-            setVehicles(vehiculeData);
-            setFilteredVehicles(vehiculeData);
-            const model = await fetch(process.env.REACT_APP_API_URL + "model");
-            const modelData = await model.json();
-            setModel(modelData);
-            const brand = await fetch(process.env.REACT_APP_API_URL + "brand");
-            const brandData = await brand.json();
-            setBrand(brandData);
-            const energie = await fetch(process.env.REACT_APP_API_URL + "energie");
-            const energieData = await energie.json();
-            setEnergie(energieData);
-            const type = await fetch(process.env.REACT_APP_API_URL + "type");
-            const typeData = await type.json();
-            setType(typeData);
-            const gearBoxe = await fetch(process.env.REACT_APP_API_URL + "gearBoxe");
-            const gearBoxeData = await gearBoxe.json();
-            setGearBoxe(gearBoxeData);
+            const urls = ["vehicule", "model", "brand", "energie", "type", "gearBoxe"].map((endpoint) => process.env.REACT_APP_API_URL + endpoint);
+
+            const dataPromises = urls.map((url) => {
+                return fetch(url).then(response => response.json())
+            });
+
+            Promise.all(dataPromises).then(([vehiculeData, modelData, brandData, energieData, typeData, gearBoxeData]) => {
+                    setVehicles(vehiculeData);
+                    setModel(modelData);
+                    setBrand(brandData);
+                    setEnergie(energieData);
+                    setType(typeData);
+                    setGearBoxe(gearBoxeData);
+                    setFilteredVehicles(vehiculeData);
+                });
         }
         fetchData();
     }, []);
@@ -61,25 +58,31 @@ export default function Leasing() {
     const handleSubmit = debounce((event) => {
         event.preventDefault();
         let newFilteredVehicles = vehicles; // Start with the complete list of vehicles
-
-        if (selectedBrand !== null) {
+        if (selectedBrand !== null && selectedBrand >= 1) {
             newFilteredVehicles = newFilteredVehicles.filter(vehicle => vehicle.id_brands === selectedBrand);
         }
-        if (selectedModel !== null) {
+        if (selectedModel !== null && selectedModel >= 1) {
             newFilteredVehicles = newFilteredVehicles.filter(vehicle => vehicle.id_model_car === selectedModel);
         }
-        if (selectedEnergie !== null) {
-            newFilteredVehicles = newFilteredVehicles.filter(vehicle => vehicle.id_energies === selectedEnergie);
+        if (selectedEnergie !== null && selectedEnergie >= 1) {
+            newFilteredVehicles = newFilteredVehicles.filter(vehicle => vehicle.id_energies !== selectedEnergie);
         }
-        if (selectedType !== null) {
+        if (selectedType !== null && selectedType >= 1) {
             newFilteredVehicles = newFilteredVehicles.filter(vehicle => vehicle.id_types === selectedType);
         }
-        if (selectedGearBoxe !== null) {
+        if (selectedGearBoxe !== null && selectedGearBoxe >= 1) {
             newFilteredVehicles = newFilteredVehicles.filter(vehicle => vehicle.id_gear_boxes === selectedGearBoxe);
+        }
+        if (startDate) {
+            newFilteredVehicles = newFilteredVehicles.filter(vehicle => {
+                const vehicleDate = new Date(vehicle.enterDate);
+                return vehicleDate >= startDate;
+            });
         }
         setFilteredVehicles(newFilteredVehicles); // Update filteredVehicles instead of vehicles
     }, 300);
 
+    console.log(filteredVehicles)
     const getMergedVehicles = useMemo(() => {
         return filteredVehicles.map((vehicle) => {
             const vehicleModel = model.find((m) => m.id === vehicle.id_model_car);
