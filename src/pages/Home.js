@@ -15,29 +15,13 @@ const Home = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const urls = ["vehicule", "model"].map((endpoint) => process.env.REACT_APP_API_URL + endpoint);
-
-            const dataKeys = ["vehiculeData", "modelData"];
-
-            const dataPromises = urls.map(async (url, index) => {
-                const storageKey = dataKeys[index];
-                let data = JSON.parse(localStorage.getItem(storageKey));
-
-                if (!data) {
-                    const response = await fetch(url);
-                    data = await response.json();
-                    localStorage.setItem(storageKey, JSON.stringify(data));
-                }
-
-                return data;
-            });
-
-            const [vehiculeData, modelData] = await Promise.all(dataPromises);
-
+            const response = await fetch(process.env.REACT_APP_API_URL + "vehicule");
+            const vehiculeData = await response.json();
             setVehicles(vehiculeData);
+            const model = await fetch(process.env.REACT_APP_API_URL + "model");
+            const modelData = await model.json();
             setModel(modelData);
         }
-
         fetchData();
     }, []);
 

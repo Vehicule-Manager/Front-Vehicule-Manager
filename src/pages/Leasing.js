@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import "react-datepicker/dist/react-datepicker.css";
 import './../assets/style/App.scss';
 import CardExampleCardProps from './../component/CardAuto';
@@ -28,36 +28,29 @@ export default function Leasing() {
     const [filteredVehicles, setFilteredVehicles] = useState([]);
     const itemsPerPage = 9;
 
+
     useEffect(() => {
         async function fetchData() {
-            const urls = ["vehicule", "model", "brand", "energie", "type", "gearBoxe"].map((endpoint) => process.env.REACT_APP_API_URL + endpoint);
-
-            const dataKeys = ["vehiculeData", "modelData", "brandData", "energieData", "typeData", "gearBoxeData"];
-
-            const dataPromises = urls.map(async (url, index) => {
-                const storageKey = dataKeys[index];
-                let data = JSON.parse(localStorage.getItem(storageKey));
-
-                if (!data) {
-                    const response = await fetch(url);
-                    data = await response.json();
-                    localStorage.setItem(storageKey, JSON.stringify(data));
-                }
-
-                return data;
-            });
-
-            const [vehiculeData, modelData, brandData, energieData, typeData, gearBoxeData] = await Promise.all(dataPromises);
-
+            const response = await fetch(process.env.REACT_APP_API_URL + "vehicule");
+            const vehiculeData = await response.json();
             setVehicles(vehiculeData);
-            setModel(modelData);
-            setBrand(brandData);
-            setEnergie(energieData);
-            setType(typeData);
-            setGearBoxe(gearBoxeData);
             setFilteredVehicles(vehiculeData);
+            const model = await fetch(process.env.REACT_APP_API_URL + "model");
+            const modelData = await model.json();
+            setModel(modelData);
+            const brand = await fetch(process.env.REACT_APP_API_URL + "brand");
+            const brandData = await brand.json();
+            setBrand(brandData);
+            const energie = await fetch(process.env.REACT_APP_API_URL + "energie");
+            const energieData = await energie.json();
+            setEnergie(energieData);
+            const type = await fetch(process.env.REACT_APP_API_URL + "type");
+            const typeData = await type.json();
+            setType(typeData);
+            const gearBoxe = await fetch(process.env.REACT_APP_API_URL + "gearBoxe");
+            const gearBoxeData = await gearBoxe.json();
+            setGearBoxe(gearBoxeData);
         }
-
         fetchData();
     }, []);
 
@@ -87,21 +80,19 @@ export default function Leasing() {
         setFilteredVehicles(newFilteredVehicles); // Update filteredVehicles instead of vehicles
     }, 300);
 
-    const getMergedVehicles = () => {
+    const getMergedVehicles = useMemo(() => {
         return filteredVehicles.map((vehicle) => {
             const vehicleModel = model.find((m) => m.id === vehicle.id_model_car);
             const modelBrand = brand.find((b) => b.id === vehicleModel.id_brands);
             return { ...vehicle, model: vehicleModel, brand: modelBrand };
         });
-    };
+    }, [filteredVehicles, model, brand]);
 
     const getVisibleVehicles = () => {
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
-        return getMergedVehicles().slice(startIndex, endIndex);
+        return getMergedVehicles.slice(startIndex, endIndex);
     };
-
-    console.log(getVisibleVehicles())
 
     return (
         <div className="Leasing">
