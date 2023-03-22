@@ -4,7 +4,7 @@ import logo from '../assets/img/bannerArticle.png';
 
 const CardArticle = ({ item }) => {
   const extra = (
-    <Button><a href={'article/' + item.id}>Lire l'article</a></Button>
+    <Button><a href={"/article/" + item.id}>Lire l'article</a></Button>
   )
 
   if (item.content.length >= 150) {
