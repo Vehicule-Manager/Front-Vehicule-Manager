@@ -22,28 +22,28 @@ const HeaderNavbar = () => {
                 active={activeItem === 'location'}
                 onClick={handleItemClick}
             >
-                <a href="location">Location</a>
+                <a href="/location">Location</a>
             </Menu.Item>
             <Menu.Item
                 name='contact'
                 active={activeItem === 'contact'}
                 onClick={handleItemClick}
             >
-                <a href="contact">Contact</a>
+                <a href="/contact">Contact</a>
             </Menu.Item>
             <Menu.Item
                 name='service'
                 active={activeItem === 'services'}
                 onClick={handleItemClick}
             >
-                <a href="services">Service</a>
+                <a href="/services">Service</a>
             </Menu.Item>
             <Menu.Item
                 name='article'
                 active={activeItem === 'article'}
                 onClick={handleItemClick}
             >
-                <a href="article">Articles</a>
+                <a href="/article">Articles</a>
             </Menu.Item>
             {/*<Menu.Menu position='right'>
                 <Menu.Item
