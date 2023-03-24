@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button, Form } from 'semantic-ui-react';
-import DatePicker from "react-datepicker";
 
 const Filter = ({
                     brand,
@@ -13,8 +12,6 @@ const Filter = ({
                     selectedEnergie,
                     selectedType,
                     selectedGearBoxe,
-                    startDate,
-                    setStartDate,
                     setSelectedBrand,
                     setSelectedModel,
                     setSelectedEnergie,
@@ -87,13 +84,6 @@ const Filter = ({
                     placeholder='Boite de vitesse'
                     value={selectedGearBoxe}
                     onChange={(event, { value }) => setSelectedGearBoxe(value)}
-                />
-            </Form.Field>
-            <Form.Field>
-                <DatePicker
-                    selected={startDate}
-                    onChange={(date) => setStartDate(date)}
-                    inline
                 />
             </Form.Field>
             <Button onClick={handleSubmit}>Submit</Button>

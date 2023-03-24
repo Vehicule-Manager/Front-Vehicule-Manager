@@ -33,8 +33,8 @@ const CardExampleCardProps = ({ item }) => {
     }
 
     return (
-        <Card >
-            <div className='cardImageContainer' onMouseEnter={handleShow} onMouseLeave={handleHide}>
+        <Card onMouseEnter={handleShow} onMouseLeave={handleHide}>
+            <div className='cardImageContainer'>
                 <Dimmer active={active} onClick={handleHide}>
                 </Dimmer>
                 <Image src={logo}  />

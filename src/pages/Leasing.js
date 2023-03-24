@@ -6,15 +6,15 @@ import HeaderNavbar from './../component/layout/headers';
 import Footer from './../component/layout/footer';
 import {registerLocale} from "react-datepicker";
 import fr from 'date-fns/locale/fr';
-import {Pagination, usePagination} from "@mui/material";
+import {Pagination} from "@mui/material";
 import Filter from './../component/FilterLeasing';
 import {debounce} from 'lodash';
 
 registerLocale('fr', fr)
 
 export default function Leasing() {
-    const [startDate, setStartDate] = useState(new Date());
     const [page, setPage] = useState(1);
+    const [filter, setFilter] = useState({});
     const [vehicles, setVehicles] = useState([]);
     const [brand, setBrand] = useState([]);
     const [energie, setEnergie] = useState([]);
@@ -31,10 +31,17 @@ export default function Leasing() {
 
     useEffect(() => {
         fetchData(page); // Pass the current page number to fetchData
-    }, [page]); // Add page to the dependency array
+    }, [page, filter]); // Add page to the dependency array
 
     async function fetchData(page) {
-        const urls = ["vehicule", "model", "brand", "energie", "type", "gearBoxe"].map((endpoint) => `${process.env.REACT_APP_API_URL}${endpoint}?page=${page}`);
+        const filterParams = Object.entries(filter)
+            .map(([key, value]) => `filter[${key}]=${value}`)
+            .join('&');
+        console.log(filterParams)
+
+        let urls = [`vehicule?page=${page}${filterParams ? `&${filterParams}` : ''}`,].map((endpoint) => `${process.env.REACT_APP_API_URL}${endpoint}`);
+
+        urls = urls.concat(["model", "brand", "energie", "type", "gearBoxe"].map((endpoint) => `${process.env.REACT_APP_API_URL}${endpoint}`));
 
         const dataPromises = urls.map((url) => {
             return fetch(url).then(response => response.json())
@@ -53,8 +60,26 @@ export default function Leasing() {
 
     const handleSubmit = debounce((event) => {
         event.preventDefault();
-        let newFilteredVehicles = vehicles.data;
-        setFilteredVehicles(newFilteredVehicles);
+
+        let newFilter = {};
+
+        if (selectedBrand !== null && selectedBrand >= 1) {
+            newFilter.id_brands = selectedBrand;
+        }
+        if (selectedModel !== null && selectedModel >= 1) {
+            newFilter.id_model_car = selectedModel;
+        }
+        if (selectedEnergie !== null && selectedEnergie >= 1) {
+            newFilter.id_energies = selectedEnergie;
+        }
+        if (selectedType !== null && selectedType >= 1) {
+            newFilter.id_types = selectedType;
+        }
+        if (selectedGearBoxe !== null && selectedGearBoxe >= 1) {
+            newFilter.id_gear_boxes = selectedGearBoxe;
+        }
+
+        setFilter(newFilter);
     }, 300);
 
     const getMergedVehicles = useMemo(() => {
@@ -80,8 +105,6 @@ export default function Leasing() {
                     selectedEnergie={selectedEnergie}
                     selectedType={selectedType}
                     selectedGearBoxe={selectedGearBoxe}
-                    startDate={startDate}
-                    setStartDate={setStartDate}
                     setSelectedBrand={setSelectedBrand}
                     setSelectedModel={setSelectedModel}
                     setSelectedEnergie={setSelectedEnergie}
