@@ -11,6 +11,7 @@ import 'react-multi-carousel/lib/styles.css';
 
 const Home = () => {
     const [vehicles, setVehicles] = useState([]);
+    const [vehiclesData, setVehiclesData] = useState([]);
     const [model, setModel] = useState([]);
 
     useEffect(() => {
@@ -24,13 +25,14 @@ const Home = () => {
             Promise.all(dataPromises).then(([vehiculeData, modelData]) => {
                 setVehicles(vehiculeData);
                 setModel(modelData);
+                setVehiclesData(vehiculeData.data);
             });
         }
         fetchData();
     }, []);
 
     const getMergedVehicles = () => {
-        return vehicles.map((vehicle) => {
+        return vehiclesData.map((vehicle) => {
             const vehicleModel = model.find((m) => m.id === vehicle.id_model_car);
             return { ...vehicle, model: vehicleModel };
         });

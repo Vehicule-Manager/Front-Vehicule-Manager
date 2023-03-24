@@ -36,7 +36,6 @@ const CardExampleCardProps = ({ item }) => {
         <Card >
             <div className='cardImageContainer' onMouseEnter={handleShow} onMouseLeave={handleHide}>
                 <Dimmer active={active} onClick={handleHide}>
-                    <Image src={logo} />
                 </Dimmer>
                 <Image src={logo}  />
                 <div className='cardBadgeContainer'>
