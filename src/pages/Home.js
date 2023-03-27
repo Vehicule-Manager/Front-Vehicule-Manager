@@ -11,38 +11,28 @@ import 'react-multi-carousel/lib/styles.css';
 
 const Home = () => {
     const [vehicles, setVehicles] = useState([]);
+    const [vehiclesData, setVehiclesData] = useState([]);
     const [model, setModel] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
             const urls = ["vehicule", "model"].map((endpoint) => process.env.REACT_APP_API_URL + endpoint);
 
-            const dataKeys = ["vehiculeData", "modelData"];
-
-            const dataPromises = urls.map(async (url, index) => {
-                const storageKey = dataKeys[index];
-                let data = JSON.parse(localStorage.getItem(storageKey));
-
-                if (!data) {
-                    const response = await fetch(url);
-                    data = await response.json();
-                    localStorage.setItem(storageKey, JSON.stringify(data));
-                }
-
-                return data;
+            const dataPromises = urls.map((url) => {
+                return fetch(url).then(response => response.json())
             });
 
-            const [vehiculeData, modelData] = await Promise.all(dataPromises);
-
-            setVehicles(vehiculeData);
-            setModel(modelData);
+            Promise.all(dataPromises).then(([vehiculeData, modelData]) => {
+                setVehicles(vehiculeData);
+                setModel(modelData);
+                setVehiclesData(vehiculeData.data);
+            });
         }
-
         fetchData();
     }, []);
 
     const getMergedVehicles = () => {
-        return vehicles.map((vehicle) => {
+        return vehiclesData.map((vehicle) => {
             const vehicleModel = model.find((m) => m.id === vehicle.id_model_car);
             return { ...vehicle, model: vehicleModel };
         });

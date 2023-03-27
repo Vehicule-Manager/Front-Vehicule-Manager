@@ -67,12 +67,6 @@ p {
       }
     }
 
-    &:hover {
-      .image {
-        scale: 1.1;
-      }
-    }
-
     .cardBadgeContainer  {
       .cardBadgeIcon {
         outline: 1px solid cadetblue;
@@ -98,6 +92,10 @@ p {
 
   &:hover {
     box-shadow: 3px 3px 10px 3px black;
+
+    .image {
+      scale: 1.1;
+    }
   }
 }
 
