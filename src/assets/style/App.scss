@@ -126,6 +126,7 @@ p {
   margin: 2rem 5rem;
   padding: 2rem 0 2rem 10px;
 }
+
 /*--------------------------------------------
                Home  Contact
  --------------------------------------------*/
@@ -211,6 +212,7 @@ p {
   display: flex;
   justify-content: center;
 }
+
 @media (max-width: 1300px) {
   .shop {
     .filter {
@@ -253,6 +255,7 @@ p {
     }
   }
 }
+
 /*--------------------------------------------
                  Footer
  --------------------------------------------*/
@@ -310,15 +313,14 @@ p {
   display : flex;
   justify-content: center;
 }
+
 .formContact {
   background : #d9d9d9;
   width: 80%;
   padding: 1rem 1rem;
-  }
-
+}
 
 /* Article --------------------------------------------------------------------------------*/
-
 
 .backgroundArticle {
   background-color: #d9d9d9;
