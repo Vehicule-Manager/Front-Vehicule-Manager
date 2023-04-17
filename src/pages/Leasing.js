@@ -37,7 +37,6 @@ export default function Leasing() {
         const filterParams = Object.entries(filter)
             .map(([key, value]) => `filter[${key}]=${value}`)
             .join('&');
-        console.log(filterParams)
 
         let urls = [`vehicule?page=${page}${filterParams ? `&${filterParams}` : ''}`,].map((endpoint) => `${process.env.REACT_APP_API_URL}${endpoint}`);
 
