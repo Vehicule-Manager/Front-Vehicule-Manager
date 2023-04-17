@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import HeaderNavbar from './../component/layout/headers';
 import CardArticle from '../component/CardArticle';
-import logo from '../logoCar.png';
 import Footer from './../component/layout/footer';
-import { Card, Dimmer, Icon, Image } from "semantic-ui-react";
-import CardExampleCardProps from "../component/CardAuto";
+import CardBanner from './../component/CardBannerArticle';
 
 
 
@@ -13,24 +11,28 @@ export default function Articles() {
 
     useEffect(() => {
         fetch(process.env.REACT_APP_API_URL + "article")
-        .then(response => response.json())
-        .then(data =>setArticles(data))
+            .then(response => response.json())
+            .then(data => setArticles(data))
     }, []);
-    console.log(articles)
+
 
     return (
         <div>
             <HeaderNavbar />
-            <div className='backgroundCover'>
-                <p>Nos 3 derniers meilleurs article</p>
-                
+            <h2>Nos articles</h2>
+            <div className='backgroundCover formArticle'>
+                {articles.slice(0,3).map(article => (
+                    <div>
+                        <CardBanner key={article.id} item={article} />
+                    </div>
+                ))}
             </div>
 
             <div className='formArticle '>
                 {articles.map(article => (
-                <div>
-                    <CardArticle key={article.id} item={article}/>
-                </div>
+                    <div>
+                        <CardArticle key={article.id} item={article} />
+                    </div>
                 ))}
             </div>
             <Footer />
