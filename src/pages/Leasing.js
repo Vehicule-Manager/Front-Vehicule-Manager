@@ -37,7 +37,6 @@ export default function Leasing() {
         const filterParams = Object.entries(filter)
             .map(([key, value]) => `filter[${key}]=${value}`)
             .join('&');
-        console.log(filterParams)
 
         let urls = [`vehicule?page=${page}${filterParams ? `&${filterParams}` : ''}`,].map((endpoint) => `${process.env.REACT_APP_API_URL}${endpoint}`);
 
@@ -66,15 +65,19 @@ export default function Leasing() {
         if (selectedBrand !== null && selectedBrand >= 1) {
             newFilter.id_brands = selectedBrand;
         }
+
         if (selectedModel !== null && selectedModel >= 1) {
             newFilter.id_model_car = selectedModel;
         }
+
         if (selectedEnergie !== null && selectedEnergie >= 1) {
             newFilter.id_energies = selectedEnergie;
         }
+
         if (selectedType !== null && selectedType >= 1) {
             newFilter.id_types = selectedType;
         }
+
         if (selectedGearBoxe !== null && selectedGearBoxe >= 1) {
             newFilter.id_gear_boxes = selectedGearBoxe;
         }
@@ -90,13 +93,21 @@ export default function Leasing() {
         });
     }, [filteredVehicles]);
 
+    const getBrandModel = useMemo(() => {
+        if (selectedBrand !== null && selectedBrand >= 1) {
+            return model.filter((modelItem) => modelItem.id_brands === selectedBrand);
+        }
+
+        return model;
+    }, [model, selectedBrand]);
+
     return (
         <div className="Leasing">
             <HeaderNavbar/>
             <div className="shop">
                 <Filter
                     brand={brand}
-                    model={model}
+                    model={getBrandModel}
                     energie={energie}
                     type={type}
                     gearBoxe={gearBoxe}

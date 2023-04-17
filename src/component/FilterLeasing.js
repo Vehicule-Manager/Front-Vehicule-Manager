@@ -19,6 +19,10 @@ const Filter = ({
                     setSelectedGearBoxe,
                     handleSubmit
                 }) => {
+
+    const selectedModelObj = model.find(model => model.id === selectedModel);
+    const selectedModelIdBrands = selectedModelObj ? selectedModelObj.id_brands : null;
+
     return (
         <Form className="filter">
             <Form.Field>
@@ -29,9 +33,10 @@ const Filter = ({
                         { key: null, text: null, value: null }, // empty option
                         ...brand.map(brand => ({ key: brand.id, text: brand.name, value: brand.id }))
                     ]}
-                    placeholder='Marque'
-                    value={selectedBrand}
+                    placeholder='Choississez une marque'
+                    value={selectedModel !== null && selectedModel >= 1 ? selectedModelIdBrands : selectedBrand}
                     onChange={(event, { value }) => setSelectedBrand(value)}
+                    disabled={selectedModel !== null && selectedModel >= 1}
                 />
             </Form.Field>
             <Form.Field>
@@ -42,7 +47,7 @@ const Filter = ({
                         { key: null, text: null, value: null }, // empty option
                         ...model.map(model => ({ key: model.id, text: model.name, value: model.id }))
                     ]}
-                    placeholder='Model'
+                    placeholder='Choississez un model'
                     value={selectedModel}
                     onChange={(event, { value }) => setSelectedModel(value)}
                 />
@@ -55,7 +60,7 @@ const Filter = ({
                         { key: null, text: null, value: null }, // empty option
                         ...energie.map(energie => ({key: energie.id, text: energie.name, value: energie.id}))
                     ]}
-                    placeholder='Énergie'
+                    placeholder='Choississez une énergie'
                     value={selectedEnergie}
                     onChange={(event, { value }) => setSelectedEnergie(value)}
                 />
@@ -68,7 +73,7 @@ const Filter = ({
                         { key: null, text: null, value: null }, // empty option
                         ...type.map(type => ({key: type.id, text: type.name, value: type.id}))
                     ]}
-                    placeholder='Type'
+                    placeholder='Choississez un type de véhicule'
                     value={selectedType}
                     onChange={(event, { value }) => setSelectedType(value)}
                 />
