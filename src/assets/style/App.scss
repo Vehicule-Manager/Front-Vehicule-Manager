@@ -20,6 +20,10 @@ p {
   text-align: inherit;
 }
 
+.pagination {
+  margin-top: 15px;
+}
+
 /*--------------------------------------------
                  Ui card
  --------------------------------------------*/
@@ -203,7 +207,6 @@ p {
       display: grid;
       grid-template-columns: auto auto auto;
       grid-row-gap: 1rem;
-      margin-bottom: 10px;
 
       .ui.card {
         height: 425px;
@@ -347,7 +350,6 @@ p {
 /* Banner Article --------------------------------------------------------------------------------*/
 .sizeArticleBanner {
   height: 10rem;
-  ;
 }
 
 .backgroundCover {
