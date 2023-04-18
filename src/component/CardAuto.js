@@ -37,7 +37,7 @@ const CardExampleCardProps = ({ item }) => {
             <div className='cardImageContainer'>
                 <Dimmer active={active} onClick={handleHide}>
                 </Dimmer>
-                <Image src={logo}  />
+                <Image src={logo}  className='cardAutoImage' />
                 <div className='cardBadgeContainer'>
                     <div className='cardBadgeIcon'>
                         {getCarEnergy()}

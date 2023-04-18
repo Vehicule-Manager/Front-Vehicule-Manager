@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Vollkorn&display=swap');
 
 @font-face {
-  font-family : 'Fastup';
+  font-family: 'Fastup';
   src: url("../fonts/Fastup-Regular.ttf");
 }
 
@@ -9,7 +9,9 @@
   text-align: center;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: 'Fastup', serif;
 }
 
@@ -23,14 +25,14 @@ p {
  --------------------------------------------*/
 
 .ui.card {
-  margin: 0 ;
+  margin: 0;
 
   .image {
     position: relative;
   }
 
-  .ui.dimmer{
-    background-color: rgba(0,0,0,0.3) !important;
+  .ui.dimmer {
+    background-color: rgba(0, 0, 0, 0.3) !important;
   }
 
   .cardImageContainer {
@@ -39,20 +41,21 @@ p {
     .cardBadgeContainer {
       display: flex;
       position: absolute;
-      top: 5% ;
+      top: 5%;
       left: 5%;
       gap: 1rem;
 
-      .cardBadgeText,.cardBadgeIcon{
+      .cardBadgeText,
+      .cardBadgeIcon {
         padding: 0.25rem;
       }
 
-      .cardBadgeText{
+      .cardBadgeText {
         outline: 1px solid grey;
         border-radius: 5px;
       }
 
-      .cardBadgeIcon{
+      .cardBadgeIcon {
         outline: 1px solid blueviolet;
         color: blueviolet;
         border-radius: 5px;
@@ -67,7 +70,7 @@ p {
       }
     }
 
-    .cardBadgeContainer  {
+    .cardBadgeContainer {
       .cardBadgeIcon {
         outline: 1px solid cadetblue;
         color: cadetblue;
@@ -84,8 +87,9 @@ p {
       background-color: black;
       color: white;
       border-radius: 15px;
+
       &:hover {
-        box-shadow: 0 0 1px 1px black, 0 0 2.5px 3px white,0 0 5px 5px black;
+        box-shadow: 0 0 1px 1px black, 0 0 2.5px 3px white, 0 0 5px 5px black;
       }
     }
   }
@@ -93,7 +97,7 @@ p {
   &:hover {
     box-shadow: 3px 3px 10px 3px black;
 
-    .image {
+    .cardAutoImage {
       scale: 1.1;
     }
   }
@@ -139,20 +143,20 @@ p {
   justify-content: center;
   border-radius: 1rem;
 
-  .contactsCard{
+  .contactsCard {
     display: grid;
     gap: 3rem;
     padding: 2rem;
     justify-items: center;
 
-    div{
+    div {
       font-size: 1.75rem;
       color: black;
       line-height: 2rem;
     }
 
     &:hover {
-      div{
+      div {
         color: #018bb5 !important;
       }
 
@@ -172,7 +176,7 @@ p {
     justify-content: center;
     border-radius: 1rem;
 
-    .contactsCard{
+    .contactsCard {
       padding: 2rem 0;
     }
   }
@@ -261,48 +265,49 @@ p {
  --------------------------------------------*/
 
 .FooterBackground {
-    margin-top: 20px;
-    background-color: #d9d9d9;
-    padding: 1rem 4rem;
+  margin-top: 20px;
+  background-color: #d9d9d9;
+  padding: 1rem 4rem;
 }
 
 // Base Divider class
 .divider {
-    display: flex;
+  display: flex;
 
-    &:before,
-    &:after {
-        content: "";
-        flex: 1;
-    }
+  &:before,
+  &:after {
+    content: "";
+    flex: 1;
+  }
 }
 
 // Base line
 .line {
-    align-items: center;
-    margin: 1em -1em;
+  align-items: center;
+  margin: 1em -1em;
 
-    &:before,
-    &:after {
-        height: 1px;
-        margin: 0 1em;
-    }
+  &:before,
+  &:after {
+    height: 1px;
+    margin: 0 1em;
+  }
 }
 
 .one-line {
-    &:before,
-    &:after {
-        background: black;
-    }
+
+  &:before,
+  &:after {
+    background: black;
+  }
 }
 
 .containerFooter {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .borderDivision {
-    border-right: 1px black solid;
+  border-right: 1px black solid;
 }
 
 //   End Style Footer
@@ -310,12 +315,12 @@ p {
 // Design contact
 
 .formContainer {
-  display : flex;
+  display: flex;
   justify-content: center;
 }
 
 .formContact {
-  background : #d9d9d9;
+  background: #d9d9d9;
   width: 80%;
   padding: 1rem 1rem;
 }
@@ -324,11 +329,11 @@ p {
 
 .backgroundArticle {
   background-color: #d9d9d9;
-  padding : 0.5rem;
+  padding: 0.5rem;
 }
 
-.formArticle{
-  display : grid;
+.formArticle {
+  display: grid;
   justify-content: space-around;
   grid-template-columns: auto auto auto;
   align-items: center;
@@ -336,18 +341,24 @@ p {
 }
 
 .sizeArticleCard {
-  height : 20rem;
+  height: 20rem;
 }
 
 /* Banner Article --------------------------------------------------------------------------------*/
 .sizeArticleBanner {
-  height: 10rem;;
+  height: 10rem;
+  ;
 }
 
 .backgroundCover {
   background-image: url("../img/BannerGrise.png");
   border-radius: 30px;
   height: 15rem;
-  margin : 1.5rem;
-  padding : 0.6rem;
+  margin: 1.5rem;
+  padding: 0.6rem;
+}
+
+.headerBannerArticle {
+  display: flex;
+  justify-content: left;
 }
