@@ -6,11 +6,11 @@ import Leasing from './pages/Leasing';
 import Services from "./pages/services";
 import Contact from './pages/Contact';
 import reportWebVitals from './reportWebVitals';
-import {
-    createBrowserRouter,
-    RouterProvider,
-} from "react-router-dom";
 import Articles from "./pages/Articles";
+import ReadArticles from "./pages/ReadArticle";
+import {createBrowserRouter, RouterProvider,} from "react-router-dom";
+
+
 
 const router = createBrowserRouter([
     {
@@ -32,6 +32,10 @@ const router = createBrowserRouter([
     {
       path : "/article",
       element: <Articles />
+    },
+    {
+        path : "/article/:id",
+        element: <ReadArticles />
     }
 ]);
 
