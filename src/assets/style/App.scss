@@ -362,3 +362,12 @@ p {
   display: flex;
   justify-content: left;
 }
+
+/* Article show --------------------------------------------------------------------------------*/
+.ArticleContainer {
+  display: grid;
+
+  .content {
+    justify-self: left;
+  }
+}

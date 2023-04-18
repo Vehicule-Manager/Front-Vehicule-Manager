@@ -8,25 +8,25 @@ import CardArticle from "../component/CardArticle";
 
 
 export default function Articles() {
-    const [articles, setArticles] = useState([]);
+    const [article, setArticle] = useState([]);
     const { id } = useParams();
 
     useEffect(() => {
         fetch(process.env.REACT_APP_API_URL + "article/" + id)
             .then(response => response.json())
-            .then(data => setArticles(data))
+            .then(data => setArticle(data['0']))
     }, []);
 
+    console.log(article)
     return (
         <div>
             <HeaderNavbar/>
-
             <div className="ArticleContainer">
-                <h1>{articles.title}</h1>
-                <p>{articles.content}</p>
-
+                <h1>{article.title}</h1>
+                <div className="content">
+                    <p>{article.content}</p>
+                </div>
             </div>
-
             <Footer/>
         </div>
     )
