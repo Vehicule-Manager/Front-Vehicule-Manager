@@ -12,16 +12,20 @@ export default function Articles() {
     const { id } = useParams();
 
     useEffect(() => {
-        fetch(process.env.REACT_APP_API_URL + "article/" + id)
+        fetch(process.env.REACT_APP_API_URL + "../article/" + id)
             .then(response => response.json())
             .then(data => setArticles(data))
     }, []);
 
-    console.log(articles)
-    console.log(process.env.REACT_APP_API_URL + "article/" + id)
     return (
         <div>
             <HeaderNavbar/>
+
+            <div className="ArticleContainer">
+                <h1>{articles.title}</h1>
+                <p>{articles.content}</p>
+
+            </div>
 
             <Footer/>
         </div>
