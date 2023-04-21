@@ -68,3 +68,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+- Repo Back : https://github.com/mansonboy/vehiculeManager
+- Repo Mobile : https://github.com/mansonboy/Vehicule-manager-mobile
+- Repo Desktop : https://github.com/mansonboy/Vehicule-manager-desktop
+- Lien Notion : https://concrete-grouse-96d.notion.site/Promo-CDA-5215121ca7c74086b09c62615c765575
+- Lien Figma : https://www.figma.com/file/xOUedZPrkebs9HFc5jHrAx/CDA-Project-Location
