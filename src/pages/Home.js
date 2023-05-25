@@ -16,7 +16,7 @@ const Home = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const urls = ["vehicule", "model"].map((endpoint) => process.env.REACT_APP_API_URL + endpoint);
+            const urls = ["vehicules", "models"].map((endpoint) => process.env.REACT_APP_API_URL + endpoint);
 
             const dataPromises = urls.map((url) => {
                 return fetch(url).then(response => response.json())
