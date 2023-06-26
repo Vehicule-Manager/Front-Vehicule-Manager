@@ -38,9 +38,9 @@ export default function Leasing() {
             .map(([key, value]) => `filter[${key}]=${value}`)
             .join('&');
 
-        let urls = [`vehicule?page=${page}${filterParams ? `&${filterParams}` : ''}`,].map((endpoint) => `${process.env.REACT_APP_API_URL}${endpoint}`);
+        let urls = [`vehicules?page=${page}${filterParams ? `&${filterParams}` : ''}`,].map((endpoint) => `${process.env.REACT_APP_API_URL}${endpoint}`);
 
-        urls = urls.concat(["model", "brand", "energie", "type", "gearBoxe"].map((endpoint) => `${process.env.REACT_APP_API_URL}${endpoint}`));
+        urls = urls.concat(["models", "brands", "energies", "types", "gearBoxes"].map((endpoint) => `${process.env.REACT_APP_API_URL}${endpoint}`));
 
         const dataPromises = urls.map((url) => {
             return fetch(url).then(response => response.json())

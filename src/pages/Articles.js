@@ -12,7 +12,7 @@ export default function Articles() {
     const [lastPage, setLastPage] = useState(1);
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}article?page=${currentPage}`)
+        fetch(`${process.env.REACT_APP_API_URL}articles?page=${currentPage}`)
             .then((response) => response.json())
             .then((data) => {
                 setArticles(data.data);
