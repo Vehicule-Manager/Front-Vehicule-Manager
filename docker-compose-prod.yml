@@ -8,3 +8,9 @@ services:
 #      commented for prod, ports is for test in dev
 #    ports:
 #      - "8080:80"
+    networks:
+      - vehicule-manager-network
+
+networks:
+  vehicule-manager:
+    name: vehicule-manager-network
