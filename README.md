@@ -18,7 +18,7 @@ You may also see any lint errors in the console.
 
 build for the dev
 
-### `docker compose -f docker-compose-prod.yml`
+### `docker compose -f docker-compose-prod.yml up -d`
 
 build for the prod
 
