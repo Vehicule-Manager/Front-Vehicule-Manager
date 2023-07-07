@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: DockerFile.prod
+#      commented for prod, ports is for test in dev
+#    ports:
+#      - "8080:80"

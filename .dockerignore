@@ -1,0 +1,10 @@
+.DS_STORE
+.git
+.github
+.gitignore
+.idea
+/node_modules
+/build
+/DockerFile.prod
+/docker-compsose-prod.yml
+
