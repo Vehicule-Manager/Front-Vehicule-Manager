@@ -112,11 +112,29 @@ p {
 -------------------------------------------- */
 
 .ArticleContainer {
-  display: flex;
+  display: grid;
   margin: 1rem;
 
-  .ArticleText {
-    display: grid;
+  .content {
+    justify-self: left;
+  }
+
+  .likes {
+    display: flex;
+    text-align: right;
+    justify-content: flex-end;
+
+
+    Button {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: blue;
+      color: white;
+      width:110px;
+      padding-right: 10px;
+
+    }
   }
 }
 
@@ -363,13 +381,4 @@ p {
 .headerBannerArticle {
   display: flex;
   justify-content: left;
-}
-
-/* Article show --------------------------------------------------------------------------------*/
-.ArticleContainer {
-  display: grid;
-
-  .content {
-    justify-self: left;
-  }
 }
