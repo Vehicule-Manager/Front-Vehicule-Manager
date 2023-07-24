@@ -10,7 +10,6 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 const Home = () => {
-    const [vehicles, setVehicles] = useState([]);
     const [vehiclesData, setVehiclesData] = useState([]);
     const [model, setModel] = useState([]);
 
@@ -23,7 +22,6 @@ const Home = () => {
             });
 
             Promise.all(dataPromises).then(([vehiculeData, modelData]) => {
-                setVehicles(vehiculeData);
                 setModel(modelData);
                 setVehiclesData(vehiculeData.data);
             });
